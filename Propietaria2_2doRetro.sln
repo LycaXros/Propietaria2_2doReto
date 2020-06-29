@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Propietaria2_2doRetro", "Propietaria2_2doRetro\Propietaria2_2doRetro.csproj", "{44A39CC0-74B4-4937-B0FA-8D1CA534E554}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reto2.Datos", "Reto2.Datos\Reto2.Datos.csproj", "{88E23360-8F39-472E-AFE3-67791A0ED2C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44A39CC0-74B4-4937-B0FA-8D1CA534E554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A39CC0-74B4-4937-B0FA-8D1CA534E554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A39CC0-74B4-4937-B0FA-8D1CA534E554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A39CC0-74B4-4937-B0FA-8D1CA534E554}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88E23360-8F39-472E-AFE3-67791A0ED2C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88E23360-8F39-472E-AFE3-67791A0ED2C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88E23360-8F39-472E-AFE3-67791A0ED2C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88E23360-8F39-472E-AFE3-67791A0ED2C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8EDD9200-B934-4219-B2ED-F430EE902BD5}
+	EndGlobalSection
+EndGlobal
