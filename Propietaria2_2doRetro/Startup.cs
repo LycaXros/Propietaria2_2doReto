@@ -12,7 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Propietaria2_2doRetro.Services;
-using Reto2.Datos;
+using Propietaria2_2doRetro.Data;
+using Propietaria2_2doRetro.Data.EfCore;
 
 namespace Propietaria2_2doRetro
 {
@@ -35,13 +36,17 @@ namespace Propietaria2_2doRetro
                 config.AddPolicy(Policies.Admin, Policies.AdminPolicy());
                 config.AddPolicy(Policies.User, Policies.UserPolicy());
             });
-            services.AddDbContext<DbContextMovies>(opt =>
-                opt.UseSqlServer(Configuration.GetConnectionString("Conexion")));
+            //services.AddDbContext<DbContextMovies>(opt =>
+            //    opt.UseSqlServer(Configuration.GetConnectionString("Conexion")));
 
             services.AddCors(opt => {
                 opt.AddPolicy("Todos",
                     builder => builder.WithOrigins("*").WithHeaders("*").WithMethods("*"));
             });
+
+            services.AddDbContext<MDBContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("MDBContext")));
+            services.AddScoped<ActorRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

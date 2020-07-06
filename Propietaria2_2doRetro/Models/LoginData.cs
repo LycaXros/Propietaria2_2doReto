@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Propietaria2_2doRetro.Models
 {
-    public class User
+    public class LoginData
     {
         public string UserName { get; set; }
         public string FullName { get; set; }
