@@ -1,4 +1,5 @@
 ﻿using Propietaria2_2doRetro.Data;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
@@ -18,6 +19,8 @@ namespace Propietaria2_2doRetro.Models
 
         [Required]
         public string Nombre { get; set; }
+
+        public DateTime Estreno { get; set; }
 
         [Required]
         public int DirectorId { get; set; }
@@ -52,6 +55,9 @@ namespace Propietaria2_2doRetro.Models
         public int NominacionesOscar { get; set; }
         [Required]
         public int OscarGanados { get; set; }
+
+        [Required]
+        public int Runtime { get; set; }
 
         public virtual ICollection<Cast> Elenco { get; set; }
     }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Propietaria2_2doRetro.Data.EfCore;
 
 namespace Propietaria2_2doRetro.Migrations
 {
     [DbContext(typeof(MDBContext))]
-    partial class MDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200707175040_DefaultValues")]
+    partial class DefaultValues
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -192,9 +194,6 @@ namespace Propietaria2_2doRetro.Migrations
                     b.Property<int>("DirectorId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Estreno")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("LenguajeId")
                         .HasColumnType("int");
 
@@ -209,9 +208,6 @@ namespace Propietaria2_2doRetro.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("PaisId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Runtime")
                         .HasColumnType("int");
 
                     b.Property<string>("Sipnosis")

@@ -24,5 +24,51 @@ namespace Propietaria2_2doRetro.Data.EfCore
         public DbSet<Genero> Genero { get; set; }
         public DbSet<Lenguaje> Lenguaje { get; set; }
         public DbSet<User> User { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Actor>()
+                .Property(p => p.Activo)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<Cast>()
+                .Property(p => p.Activo)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<Clasificacion>()
+                .Property(p => p.Activo)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<Director>()
+                .Property(p => p.Activo)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<Genero>()
+                .Property(p => p.Activo)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<Lenguaje>()
+                .Property(p => p.Activo)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<Movie>()
+                .Property(p => p.Activo)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<Pais>()
+                .Property(p => p.Activo)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<Studio>()
+                .Property(p => p.Activo)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<User>()
+                .Property(p => p.Activo)
+                .HasDefaultValue(true);
+
+        }
     }
 }
