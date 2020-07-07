@@ -32,6 +32,24 @@ namespace Propietaria2_2doRetro.Controllers
             _config = config;
             _context = context;
         }
+
+        [HttpPost("[action]")]
+        [AllowAnonymous]
+        public async Task<IActionResult> FirstUser()
+        {
+            return await Crear(new CreateUserModel()
+            {
+                Direccion= "Un lugar en el mundo",
+                Role = "Admin",
+                email = "20181523@unapec.edu.do",
+                Nombre = "Admin Jesus Dicent",
+                Password = "12345abc",
+                Telefono = "8299661067",
+                UserName = "Administrador"
+
+            });
+        }
+
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginData login)
@@ -49,7 +67,9 @@ namespace Propietaria2_2doRetro.Controllers
             }
             return response;
         }
-        async Task<LoginData> AuthenticateUser(LoginData loginCredentials)
+
+        [NonAction]
+        private async Task<LoginData> AuthenticateUser(LoginData loginCredentials)
         {
             //LoginData user = appUsers.SingleOrDefault(x => x.UserName == loginCredentials.UserName && x.Password == loginCredentials.Password);
             var data = await _context.User.SingleOrDefaultAsync(x => x.UserName == loginCredentials.UserName);
@@ -68,7 +88,7 @@ namespace Propietaria2_2doRetro.Controllers
             };
             return user;
         }
-        string GenerateJWTToken(LoginData userInfo)
+        private string GenerateJWTToken(LoginData userInfo)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:SecretKey"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);

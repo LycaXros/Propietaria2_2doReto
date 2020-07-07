@@ -9,6 +9,7 @@ namespace Propietaria2_2doRetro.Models
 
         [Required]
         public int MovieId { get; set; }
+        public virtual Movie Pelicula { get; set; }
 
         [Required]
         public int ActorId { get; set; }

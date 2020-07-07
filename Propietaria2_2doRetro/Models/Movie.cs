@@ -1,4 +1,5 @@
 ﻿using Propietaria2_2doRetro.Data;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,6 +9,10 @@ namespace Propietaria2_2doRetro.Models
 {
     public class Movie : IEntity
     {
+        public Movie()
+        {
+            Elenco = new HashSet<Cast>();
+        }
         public int Id { get; set; }
         public bool Activo { get; set; }
 
@@ -47,5 +52,7 @@ namespace Propietaria2_2doRetro.Models
         public int NominacionesOscar { get; set; }
         [Required]
         public int OscarGanados { get; set; }
+
+        public virtual ICollection<Cast> Elenco { get; set; }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Propietaria2_2doRetro.Data;
+using Propietaria2_2doRetro.Services;
 
 namespace Propietaria2_2doRetro.Controllers
 {
@@ -20,6 +22,8 @@ namespace Propietaria2_2doRetro.Controllers
 
 
         // GET: api/[controller]
+        [AllowAnonymous]
+        //[Authorize(Policy = Policies.User)]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TEntity>>> Get()
         {
@@ -28,6 +32,7 @@ namespace Propietaria2_2doRetro.Controllers
 
 
         // GET: api/[controller]/5
+        [Authorize(Policy = Policies.User)]
         [HttpGet("{id}")]
         public async Task<ActionResult<TEntity>> Get(int id)
         {
@@ -40,6 +45,7 @@ namespace Propietaria2_2doRetro.Controllers
         }
 
         // PUT: api/[controller]/5
+        [Authorize(Policy = Policies.Admin)]
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, TEntity entity)
         {
@@ -52,6 +58,7 @@ namespace Propietaria2_2doRetro.Controllers
         }
 
         // POST: api/[controller]
+        [Authorize(Policy = Policies.Admin)]
         [HttpPost]
         public async Task<ActionResult<TEntity>> Post(TEntity entity)
         {
@@ -60,6 +67,7 @@ namespace Propietaria2_2doRetro.Controllers
         }
 
         // DELETE: api/[controller]/5
+        [Authorize(Policy = Policies.Admin)]
         [HttpDelete("{id}")]
         public async Task<ActionResult<TEntity>> Delete(int id)
         {

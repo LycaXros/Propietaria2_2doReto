@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Propietaria2_2doRetro.Services;
 using Propietaria2_2doRetro.Data;
 using Propietaria2_2doRetro.Data.EfCore;
+using Microsoft.OpenApi.Models;
 
 namespace Propietaria2_2doRetro
 {
@@ -39,10 +40,28 @@ namespace Propietaria2_2doRetro
             //services.AddDbContext<DbContextMovies>(opt =>
             //    opt.UseSqlServer(Configuration.GetConnectionString("Conexion")));
 
-            services.AddCors(opt => {
+            services.AddCors(opt =>
+            {
                 opt.AddPolicy("Todos",
                     builder => builder.WithOrigins("*").WithHeaders("*").WithMethods("*"));
             });
+
+            services.AddSwaggerGen(swagger =>
+            {
+                swagger.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Movie DB API",
+                    Version = "v1",
+                    Description = "Api del proyecto de Propietaria 2",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Jesus Dicent ",
+                        Email = "20181523@unapec.edu.do",
+                        Url = new Uri("https://unapec.edu.do/"),
+                    },
+                });
+            });
+
 
             services.AddDbContext<MDBContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MDBContext")));
@@ -70,6 +89,12 @@ namespace Propietaria2_2doRetro
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MovieDB API");
             });
         }
     }

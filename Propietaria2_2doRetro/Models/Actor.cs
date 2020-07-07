@@ -20,5 +20,9 @@ namespace Propietaria2_2doRetro.Models
         public bool Activo { get; set; }
 
         public virtual ICollection<Cast> Filmes { get; set; }
+        public Actor()
+        {
+            Filmes = new HashSet<Cast>();
+        }
     }
 }
