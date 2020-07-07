@@ -10,9 +10,9 @@ namespace Propietaria2_2doRetro.Data.EfCore
         }
         // We can add new methods specific to the movie repository here in the future
     }
-    public class ActorRepository: EfCoreRepository<Actor, MDBContext>
+    public class ActorRepository : EfCoreRepository<Actor, MDBContext>
     {
-        public ActorRepository(MDBContext context): base(context)
+        public ActorRepository(MDBContext context) : base(context)
         {
 
         }

@@ -6,11 +6,11 @@ namespace Propietaria2_2doRetro.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ActorsController : MDBController<Actor, ActorRepository>
+    public class CastController : MDBController<Cast, CastRepository>
     {
-        public ActorsController(ActorRepository repo) : base(repo)
+        public CastController(CastRepository repo):base(repo)
         {
-
+    
         }
     }
 

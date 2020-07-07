@@ -13,6 +13,7 @@ namespace Propietaria2_2doRetro.Data.EfCore
         {
             this.context = context;
         }
+
         public async Task<TEntity> Add(TEntity entity)
         {
             context.Set<TEntity>().Add(entity);
