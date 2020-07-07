@@ -17,47 +17,45 @@ namespace Propietaria2_2doRetro.Models
         public int Id { get; set; }
         public bool Activo { get; set; }
 
-        [Required]
+        
         public string Nombre { get; set; }
 
-        public DateTime Estreno { get; set; }
+        public DateTime? Estreno { get; set; }
 
-        [Required]
-        public int DirectorId { get; set; }
+        public int? DirectorId { get; set; }
         public virtual Director Director { get; set; }
 
-        [Required]
-        public int LenguajeId { get; set; }
+        public int? LenguajeId { get; set; }
         public virtual Lenguaje Lenguaje { get; set; }
 
-        [Required]
-        public int PaisId { get; set; }
+
+        public int? PaisId { get; set; }
         public virtual Pais Pais { get; set; }
 
-        [Required]
-        public int StudioId { get; set; }
+
+        public int? StudioId { get; set; }
         public virtual Studio Studio { get; set; }
 
-        [Required]
-        public int ClasificacionId { get; set; }
+
+        public int? ClasificacionId { get; set; }
         public virtual Clasificacion Clasificacion { get; set; }
 
-        [Required]
+        
         public string Sipnosis { get; set; }
 
-        [Required]
-        public double Budget { get; set; }
 
-        [Required]
-        public double BoxOffice { get; set; }
+        public double? Budget { get; set; }
 
-        [Required]
-        public int NominacionesOscar { get; set; }
-        [Required]
-        public int OscarGanados { get; set; }
+        
+        public double? BoxOffice { get; set; }
 
-        [Required]
-        public int Runtime { get; set; }
+        
+        public int? NominacionesOscar { get; set; }
+        
+        public int? OscarGanados { get; set; }
+
+        
+        public int? Runtime { get; set; }
 
         public virtual ICollection<Cast> Elenco { get; set; }
     }

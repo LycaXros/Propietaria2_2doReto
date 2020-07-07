@@ -55,7 +55,7 @@ namespace Propietaria2_2doRetro.Data.EfCore
 
             modelBuilder.Entity<Movie>()
                 .Property(p => p.Activo)
-                .HasDefaultValue(true);
+                .HasDefaultValue(true);            
 
             modelBuilder.Entity<Pais>()
                 .Property(p => p.Activo)

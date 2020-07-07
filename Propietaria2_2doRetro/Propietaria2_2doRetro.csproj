@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\CalcService.cs" />
+    <Compile Remove="Migrations\20200707185228_NullPropertiesMovie.cs" />
+    <Compile Remove="Migrations\20200707185228_NullPropertiesMovie.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

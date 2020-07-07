@@ -66,6 +66,15 @@ namespace Propietaria2_2doRetro
             services.AddDbContext<MDBContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MDBContext")));
             services.AddScoped<ActorRepository>();
+            services.AddScoped<CastRepository>();
+            services.AddScoped<DirectorRepository>();
+            services.AddScoped<PGRepository>();
+            services.AddScoped<GenreRepository>();
+            services.AddScoped<LangRepository>();
+            services.AddScoped<MovieRepository>();
+            services.AddScoped<PaisRepository>();
+            services.AddScoped<StudioRepository>();
+            services.AddScoped<CastRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
