@@ -21,6 +21,8 @@ namespace Propietaria2_2doRetro.Data.EfCore
         public DbSet<Movie> Movie { get; set; }
         public DbSet<Pais> Pais { get; set; }
         public DbSet<Studio> Estudio { get; set; }
+        public DbSet<Genero> Genero { get; set; }
+        public DbSet<Lenguaje> Lenguaje { get; set; }
         public DbSet<User> User { get; set; }
     }
 }

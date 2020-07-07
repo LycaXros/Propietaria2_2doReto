@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Propietaria2_2doRetro.Data.EfCore;
 
 namespace Propietaria2_2doRetro.Migrations
 {
     [DbContext(typeof(MDBContext))]
-    partial class MDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200707135821_Initial2")]
+    partial class Initial2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -292,31 +294,31 @@ namespace Propietaria2_2doRetro.Migrations
             modelBuilder.Entity("Propietaria2_2doRetro.Models.Movie", b =>
                 {
                     b.HasOne("Propietaria2_2doRetro.Models.Clasificacion", "Clasificacion")
-                        .WithMany("Films")
+                        .WithMany()
                         .HasForeignKey("ClasificacionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Propietaria2_2doRetro.Models.Director", "Director")
-                        .WithMany("Films")
+                        .WithMany()
                         .HasForeignKey("DirectorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Propietaria2_2doRetro.Models.Lenguaje", "Lenguaje")
-                        .WithMany("Films")
+                        .WithMany()
                         .HasForeignKey("LenguajeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Propietaria2_2doRetro.Models.Pais", "Pais")
-                        .WithMany("Films")
+                        .WithMany()
                         .HasForeignKey("PaisId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Propietaria2_2doRetro.Models.Studio", "Studio")
-                        .WithMany("Films")
+                        .WithMany()
                         .HasForeignKey("StudioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
