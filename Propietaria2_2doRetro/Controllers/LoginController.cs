@@ -22,11 +22,7 @@ namespace Propietaria2_2doRetro.Controllers
     {
         private readonly MDBContext _context;
         private readonly IConfiguration _config;
-        //private List<LoginData> appUsers = new List<LoginData>
-        //{
-        //    new LoginData { FullName = "Jesus Dicent", UserName = "admin", Password = "1234", UserRole = "Admin" },
-        //    new LoginData { FullName = "Test User", UserName = "user", Password = "1234", UserRole = "User" }
-        //};
+
         public LoginController(IConfiguration config, MDBContext context)
         {
             _config = config;
@@ -62,7 +58,9 @@ namespace Propietaria2_2doRetro.Controllers
                 response = Ok(new
                 {
                     token = tokenString,
-                    userDetails = user,
+                    userDetails = new { 
+                        user.FullName, user.UserName, user.UserRole
+                    },
                 });
             }
             return response;
@@ -73,6 +71,8 @@ namespace Propietaria2_2doRetro.Controllers
         {
             //LoginData user = appUsers.SingleOrDefault(x => x.UserName == loginCredentials.UserName && x.Password == loginCredentials.Password);
             var data = await _context.User.SingleOrDefaultAsync(x => x.UserName == loginCredentials.UserName);
+
+            if (data == null) return null;
 
             if (!VerificarPasswordHash(loginCredentials.Password, data.password_hash, data.Password_salt))
             {
